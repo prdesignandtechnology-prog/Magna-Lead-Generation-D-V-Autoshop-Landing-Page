@@ -1,82 +1,55 @@
-### Overview
-This repo contains the full source, assets, and deployment pipeline for the high-converting landing page we built to generate qualified service leads for D&V Autoshop in the Magna catchment area.
-The page was the #1 performer in our “Successful Prospecting” sprint, delivering 38 % lift in booked appointments vs. previous funnel (Google Optimize, 2 847 sessions, 95 % confidence).
+D & V Auto Repair | Magna Lead Generation Project
 
-### Live URL
-https://magna.dvautoshop.com/landing
-(Cloudflare → Vercel edge, < 650 ms TTFB global)
+A high-performance, multi-page web presence for D & V Auto Repair in Magna, UT. This project is built using the "Industrial Specialist" (Archetype B) design system, prioritizing technical authority, Local SEO (NAP) validation, and interactive 3D diagnostics.
 
-### Tech Stack
-Layer	Tech
-Framework	Next.js 14 (App Router)
-Styling	Tailwind CSS + @headlessui
-Forms / Validation	React-Hook-Form + Zod
-CMS (coupons, hours)	Sanity CDN-cached
-Booking engine	Calendly embedded (async preload)
-Analytics	GA4 + server-side GTM
-Hosting	Vercel (prod) / GitHub Actions (CI)
-A/B runner	Vercel Edge Middleware
+🚀 Live Production Site
 
-### Quick Start
+URL: https://prdesignandtechnology-prog.github.io/Magna-Lead-Generation-D-V-Autoshop-Landing-Page/
 
-14px
-git clone https://github.com/your-org/magna-lead-generation-dv-autoshop-landing-page.git
-cd magna-lead-generation-dv-autoshop-landing-page
-cp .env.example .env.local   # add your keys
-pnpm i
-pnpm dev        # http://localhost:3000
-Folder Map
+🛠️ Project Architecture
 
-14px
-├── app/              # Next.js 14 App Router
-│  ├─ (landing)/page.tsx
-│  └─ api/lead/route.ts   # POST → Zoho CRM
-├── components/
-│  ├─ forms/BookService.tsx
-│  ├─ sections/Hero.tsx
-│  └─ ui/
-├── lib/
-│  ├─ sanity.ts
-│  └─ zod-schemas.ts
-├── public/
-│  ├─ images/hero-1920.webp
-│  └─ videos/tech-showcase.mp4
-└─ tests/
-   └─ e2e/landing.cy.ts  # Cypress
-Environment Variables
+The site has transitioned from a single-page landing to a modular, multi-page structure optimized for GitHub Pages and Cloudflare delivery.
 
-14px
-NEXT_PUBLIC_SANITY_PROJECT_ID=
-NEXT_PUBLIC_SANITY_DATASET=
-SANITY_API_TOKEN=
-NEXT_PUBLIC_GA4_ID=
-ZOHO_CRM_ENDPOINT=
-ZOHO_CRM_TOKEN=
-CI / CD
-Push to main → GitHub Action runs pnpm test:ci && pnpm build
-Vercel deploys to prod (zero-downtime)
-Lighthouse score ≥ 95 enforced (/budget.json)
-A/B & Personalisation
-Edge Middleware geofences Magna postal codes (L4X/L4Y) → shows “Free brake-check” vs. generic offer
-UTM ?variant=b triggers alternate hero copy (maintained in /middleware.ts)
-Performance KPIs (30-day)
-Metric	Value
-Median LCP	1.6 s
-Mobile CLS	0.04
-Form conversion	19.4 % (1 326 leads)
-Cost per lead	$7.80 CAD
-Roadmap
-Add Apple/Google Pay one-tap checkout for deposit
-Multilingual (Punjabi, Spanish) via next-intl
-OpenGraph dynamic images for ?referral=
-Contributing
-Fork → feature branch
-Add Cypress test for new flow
-PR must pass pnpm lint && pnpm test
-Tag @maintainer for review
-License
-MIT © 2024 @hknwbld — see LICENSE
+Home Page (index.html): Conversion-focused landing with high-contrast "Asphalt & Amber" branding and Local SEO Schema.
 
-Attribution
-By @Hunterknewbold (No license)
-Icons from @hknwbld 
+Services Page (services.html): Technical deep-dive featuring an interactive 
+
+Tech Stack: Vanilla HTML5, Tailwind CSS, FontAwesome 6.
+
+🏁 Key Features
+
+1. Archetype B: The Industrial Specialist
+
+Visual Identity: High-performance palette using Asphalt Slate (#0f172a) and Industrial Amber (#d97706).
+
+Typography: Heavy-weight Roboto to project mechanical precision and reliability.
+
+2. Local SEO & NAP Validation
+
+Verified Data: 3495 S 8400 W, Magna, UT 84044 | (801) 250-5742.
+
+Structured Data: Integrated AutoRepair JSON-LD schema to unlock Google Search rich snippets.
+
+Semantic HTML: Uses <address>, <ul>/<li> lists, and proper heading hierarchies for search engine crawling and accessibility.
+
+📦 Deployment Instructions
+
+Local Development
+
+Clone the repository.
+
+Open index.html in any modern browser.
+
+No build step is required (Tailwind and Three.js are loaded via high-availability CDNs).
+
+Hosting via GitHub Pages
+
+This project is configured for static hosting on GitHub Pages:
+
+Ensure index.html is in the root directory.
+
+Navigation links use relative paths (e.g., href="services.html") for seamless routing.
+
+Cloudflare is used for SSL termination and edge caching.
+
+Maintained by: @hknwbld @hunterknewbold Status: Session Complete - v2.0 (Multi-Page)
